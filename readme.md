@@ -27,7 +27,7 @@ Constraints:<br/>
 <h2 style="font-size: 20px;">3 approaches</h2>
 <h2 style="font-size: 18px;">Brute Force approach</h2>
 The code you provided implements the "Two Sum" problem using a Brute Force (loop) to loop through numbers one by one. Here's an explanation of the code:
-<h2 style="font-size: 13px;">Intuition</h2>
+*Intuition*
 The intuition behind this code is to use a nested loop to check every pair of elements in the `nums` array to see if their sum equals the `target`.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Initialize an empty vector `result` to store the indices of the two numbers that add up to the `target`.
@@ -59,7 +59,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
 <h2 style="font-size: 15px;">Two pointer approach</h2>
 The code you provided implements the "Two Sum" problem using a Two pointer. It sorts the input array, then uses two pointers to find the pair of elements that sum up to the target. Here's the breakdown of this code:
-<h2 style="font-size: 13px;">Intuition</h2>
+*Intuition*
 This code takes advantage of the fact that sorting the array allows us to use two pointers to efficiently find the pair of elements that add up to the target.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Create a copy of the `nums` array called `sorted_nums` and sort it in ascending order.
@@ -114,7 +114,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
 <h2 style="font-size: 15px;">Hash-Map approach</h2>
 The code you provided implements the "Two Sum" problem using a hash map (unordered_map) to store previously seen numbers and their indices. Here's an explanation of the code:
-<h2 style="font-size: 13px;">Intuition</h2>
+*Intuition*
 The problem requires finding two numbers in the given `nums` array that add up to the `target` value. 
 <h2 style="font-size: 13px;">Approach</h2>
 1. Create an unordered_map `m` to store the numbers encountered so far as keys and their indices as values.
@@ -165,7 +165,7 @@ Tests:<br/>
 <h2 style="font-size: 20px;">2 approaches</h2>
 <h2 style="font-size: 18px;">Brute Force approach</h2>
 This approach involves iterating through all numbers from 1 to the given parameter value `number`, checking if each number is a multiple of 3 or 5, and accumulating the sum.
-<h2 style="font-size: 13px;">Intuition</h2>
+*Intuition*
 The goal of this code is to find the sum of all multiples of 3 or 5 that are less than a given `number`.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Initialize a variable `sum` to store the sum of multiples of 3 or 5.
@@ -191,7 +191,7 @@ int multiplesOf3and5(int number) {
 
 <h2 style="font-size: 15px;">Mathematical Formula approach</h2>
 You can use mathematical formulas to calculate the sum of multiples of 3 and 5 up to a given number without iterating through each number.
-<h2 style="font-size: 13px;">Intuition</h2>
+*Intuition*
 The goal of this code is still to find the sum of all multiples of 3 or 5 that are less than a given `number`. However, this code appears to use a more efficient approach that avoids iterating through the numbers individually.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Adjust the value of `number` by decrementing it to exclude the given number if it's a multiple of 3 or 5. This step ensures that the sum includes multiples less than the input number but not the number itself if it's a multiple of 3 or 5.
