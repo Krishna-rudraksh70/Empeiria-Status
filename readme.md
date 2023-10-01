@@ -3,7 +3,7 @@
 ## Table of Content
 
 1. [Two Sum](#two-sum)
-2. [Sum of multiples of 3 & 5](#sum-3-5)
+2. [Sum of multiples of 3 and 5](#sum-of-multiples-of-3-and-5)
 
 ## Two Sum
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br/>
@@ -152,7 +152,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 }
 ```
 
-## Sum of multiples of 3 & 5
+## Sum of multiples of 3 and 5
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.<br/>
 Find the sum of all the multiples of 3 or 5 below the provided parameter value number<br/>
 Tests:<br/>
