@@ -1,11 +1,11 @@
-<h1 style="font-size: 40px;">K.</h2>
+# K.
 
-<h1 style="font-size: 40px;">Table of Content</h2>
-1. [1. Two Sum] [#2sum]
-2. [2. Sum of multiple of 3 & 5] [#sum35]
+## Table of Content
 
-<h2 style="font-size: 25px;"><a name="2sum" href="https://leetcode.com/problems/two-sum/" target="_blank"></a>1. Two Sum</h2>
+1. [Two Sum](#two-sum)
+2. [Sum of multiples of 3 & 5](#sum-3-5)
 
+## Two Sum
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br/>
 You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
 You can return the answer in any order.<br/>
@@ -151,7 +151,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
     return result; // No valid solution found
 }
 ```
-<h2 style="font-size: 25px;"><a name="#sum35" href="https://www.freecodecamp.org/learn/project-euler/project-euler-problems-1-to-100/problem-1-multiples-of-3-and-5" target="_blank"></a>2. Sum of multiple of 3 & 5</h2>
+
+## Sum of multiples of 3 & 5
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.<br/>
 Find the sum of all the multiples of 3 or 5 below the provided parameter value number<br/>
 Tests:<br/>
