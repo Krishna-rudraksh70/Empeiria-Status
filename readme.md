@@ -27,7 +27,7 @@ Constraints:<br/>
 <h2 style="font-size: 20px;">3 approaches</h2>
 <h2 style="font-size: 18px;">Brute Force approach</h2>
 The code you provided implements the "Two Sum" problem using a Brute Force (loop) to loop through numbers one by one. Here's an explanation of the code:
-*Intuition*
+<h2 style="font-size: 13px;">Intuition</h2>
 The intuition behind this code is to use a nested loop to check every pair of elements in the `nums` array to see if their sum equals the `target`.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Initialize an empty vector `result` to store the indices of the two numbers that add up to the `target`.
@@ -39,7 +39,7 @@ The intuition behind this code is to use a nested loop to check every pair of el
 - Time Complexity: The code has a time complexity of O(n^2) because it uses nested loops to check all pairs of elements in the `nums` array. In the worst case, it may have to check n(n-1)/2 pairs, where n is the number of elements in the array.
 - Space Complexity: The space complexity is O(1) because the `result` vector stores at most two indices, and the space required for the indices does not depend on the size of the input array.
 
-```bash
+```cpp
 vector<int> twoSum(vector<int>& nums, int target) {
     vector<int> result;
 
@@ -59,7 +59,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
 <h2 style="font-size: 15px;">Two pointer approach</h2>
 The code you provided implements the "Two Sum" problem using a Two pointer. It sorts the input array, then uses two pointers to find the pair of elements that sum up to the target. Here's the breakdown of this code:
-*Intuition*
+<h2 style="font-size: 13px;">Intuition</h2>
 This code takes advantage of the fact that sorting the array allows us to use two pointers to efficiently find the pair of elements that add up to the target.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Create a copy of the `nums` array called `sorted_nums` and sort it in ascending order.
@@ -74,7 +74,7 @@ This code takes advantage of the fact that sorting the array allows us to use tw
 - Time Complexity: The time complexity of this code is O(n log n) due to the sorting step (where n is the number of elements in `nums`). The while loop runs in O(n) time.
 - Space Complexity: The space complexity is O(n) because of the `sorted_nums` array, and the additional space used for the indices and result vector is also O(n).
 
-```bash
+```cpp
 vector<int> twoSum(vector<int>& nums, int target) {
     vector<int> sorted_nums = nums;
     sort(sorted_nums.begin(), sorted_nums.end());
@@ -114,7 +114,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
 <h2 style="font-size: 15px;">Hash-Map approach</h2>
 The code you provided implements the "Two Sum" problem using a hash map (unordered_map) to store previously seen numbers and their indices. Here's an explanation of the code:
-*Intuition*
+<h2 style="font-size: 13px;">Intuition</h2>
 The problem requires finding two numbers in the given `nums` array that add up to the `target` value. 
 <h2 style="font-size: 13px;">Approach</h2>
 1. Create an unordered_map `m` to store the numbers encountered so far as keys and their indices as values.
@@ -129,7 +129,7 @@ The problem requires finding two numbers in the given `nums` array that add up t
 - Time Complexity: The code has a time complexity of O(n) because it iterates through the `nums` array once, where n is the number of elements in the array.
 - Space Complexity: The space complexity is O(n) because, in the worst case, all n elements of the array are stored in the unordered_map `m`.
 
-```bash
+```cpp
 vector<int> twoSum(vector<int>& nums, int target) {
     unordered_map<int, int> numToIndex;
     vector<int> result;
@@ -165,7 +165,7 @@ Tests:<br/>
 <h2 style="font-size: 20px;">2 approaches</h2>
 <h2 style="font-size: 18px;">Brute Force approach</h2>
 This approach involves iterating through all numbers from 1 to the given parameter value `number`, checking if each number is a multiple of 3 or 5, and accumulating the sum.
-*Intuition*
+<h2 style="font-size: 13px;">Intuition</h2>
 The goal of this code is to find the sum of all multiples of 3 or 5 that are less than a given `number`.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Initialize a variable `sum` to store the sum of multiples of 3 or 5.
@@ -177,7 +177,7 @@ The goal of this code is to find the sum of all multiples of 3 or 5 that are les
 - Time Complexity: The time complexity of this code is O(number) because it uses a loop that iterates from 1 to `number - 1`, where `number` is the input.
 - Space Complexity: The space complexity is O(1) because it uses a single integer variable (`sum`) to store the result, and the space used does not depend on the input size.
 
-```bash
+```cpp
 int multiplesOf3and5(int number) {
     int sum = 0;
     for (int i = 1; i < number; i++) {
@@ -191,7 +191,7 @@ int multiplesOf3and5(int number) {
 
 <h2 style="font-size: 15px;">Mathematical Formula approach</h2>
 You can use mathematical formulas to calculate the sum of multiples of 3 and 5 up to a given number without iterating through each number.
-*Intuition*
+<h2 style="font-size: 13px;">Intuition</h2>
 The goal of this code is still to find the sum of all multiples of 3 or 5 that are less than a given `number`. However, this code appears to use a more efficient approach that avoids iterating through the numbers individually.
 <h2 style="font-size: 13px;">Approach</h2>
 1. Adjust the value of `number` by decrementing it to exclude the given number if it's a multiple of 3 or 5. This step ensures that the sum includes multiples less than the input number but not the number itself if it's a multiple of 3 or 5.
@@ -205,7 +205,7 @@ The goal of this code is still to find the sum of all multiples of 3 or 5 that a
 - Time Complexity: The time complexity of this code is O(1) because it performs a fixed number of mathematical operations regardless of the input value `number`. The calculations are done in constant time.
 - Space Complexity: The space complexity is O(1) because it uses only a fixed amount of memory to store variables, and the space usage is independent of the input size.
 
-```bash
+```cpp
 int multiplesOf3and5(int number) {
     number--;  // Adjust to exclude the given number if it's a multiple of 3 or 5
     int sum = 0;
