@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+using namespace std;
 
 //Brute Force approach
 std::vector<int> twoSum(std::vector<int>& nums, int target) {

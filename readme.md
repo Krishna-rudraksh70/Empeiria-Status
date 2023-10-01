@@ -1,6 +1,10 @@
 <h1 style="font-size: 40px;">K.</h2>
 
-<h2 style="font-size: 25px;">1. Two Sum</h2>
+<h1 style="font-size: 40px;">Table of Content</h2>
+1. [1. Two Sum] [#2sum]
+2. [2. Sum of multiple of 3 & 5] [#sum35]
+
+<h2 style="font-size: 25px;"><a name="2sum" href="https://leetcode.com/problems/two-sum/" target="_blank"></a>1. Two Sum</h2>
 
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br/>
 You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
@@ -147,5 +151,72 @@ vector<int> twoSum(vector<int>& nums, int target) {
     return result; // No valid solution found
 }
 ```
+<h2 style="font-size: 25px;"><a name="#sum35" href="https://www.freecodecamp.org/learn/project-euler/project-euler-problems-1-to-100/problem-1-multiples-of-3-and-5" target="_blank"></a>2. Sum of multiple of 3 & 5</h2>
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.<br/>
+Find the sum of all the multiples of 3 or 5 below the provided parameter value number<br/>
+Tests:<br/>
+1. multiplesOf3and5(10) should return a number.<br/>
+2. multiplesOf3and5(49) should return 543.<br/>
+3. multiplesOf3and5(1000) should return 233168.<br/>
+4. multiplesOf3and5(8456) should return 16687353.<br/>
+5. multiplesOf3and5(19564) should return 89301183. <br/>
 
-K.
+<h2 style="font-size: 20px;">2 approaches</h2>
+<h2 style="font-size: 18px;">Brute Force approach</h2>
+This approach involves iterating through all numbers from 1 to the given parameter value `number`, checking if each number is a multiple of 3 or 5, and accumulating the sum.
+<h2 style="font-size: 13px;">Intuition</h2>
+The goal of this code is to find the sum of all multiples of 3 or 5 that are less than a given `number`.
+<h2 style="font-size: 13px;">Approach</h2>
+1. Initialize a variable `sum` to store the sum of multiples of 3 or 5.
+2. Use a for loop to iterate through numbers from 1 to `number - 1` (inclusive).
+3. For each number `i`, check if it is a multiple of 3 (`i % 3 == 0`) or a multiple of 5 (`i % 5 == 0`).
+4. If `i` is a multiple of either 3 or 5, add it to the `sum`.
+5. After the loop, return the `sum` as the result.
+<h2 style="font-size: 13px;">Complexity</h2>
+- Time Complexity: The time complexity of this code is O(number) because it uses a loop that iterates from 1 to `number - 1`, where `number` is the input.
+- Space Complexity: The space complexity is O(1) because it uses a single integer variable (`sum`) to store the result, and the space used does not depend on the input size.
+
+```bash
+int multiplesOf3and5(int number) {
+    int sum = 0;
+    for (int i = 1; i < number; i++) {
+        if (i % 3 == 0 || i % 5 == 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+```
+
+<h2 style="font-size: 15px;">Mathematical Formula approach</h2>
+You can use mathematical formulas to calculate the sum of multiples of 3 and 5 up to a given number without iterating through each number.
+<h2 style="font-size: 13px;">Intuition</h2>
+The goal of this code is still to find the sum of all multiples of 3 or 5 that are less than a given `number`. However, this code appears to use a more efficient approach that avoids iterating through the numbers individually.
+<h2 style="font-size: 13px;">Approach</h2>
+1. Adjust the value of `number` by decrementing it to exclude the given number if it's a multiple of 3 or 5. This step ensures that the sum includes multiples less than the input number but not the number itself if it's a multiple of 3 or 5.
+2. Initialize an integer variable `sum` to store the final sum.
+3. Calculate the number of multiples of 3, 5, and 15 (least common multiple) that are less than the adjusted `number` by dividing `number` by 3, 5, and 15, respectively. These calculations are used to determine how many terms to include in the summation.
+4. Calculate the sum of multiples of 3 using the arithmetic series formula: `(3 * multiplesOf3 * (multiplesOf3 + 1) / 2)`. This formula computes the sum of an arithmetic series of multiples of 3.
+5. Calculate the sum of multiples of 5 using a similar formula.
+6. Calculate the sum of multiples of 15 (common multiples of 3 and 5) and subtract it from the total. This step is necessary to avoid double-counting multiples of both 3 and 5.
+7. Return the computed `sum` as the result.
+<h2 style="font-size: 13px;">Complexity</h2>
+- Time Complexity: The time complexity of this code is O(1) because it performs a fixed number of mathematical operations regardless of the input value `number`. The calculations are done in constant time.
+- Space Complexity: The space complexity is O(1) because it uses only a fixed amount of memory to store variables, and the space usage is independent of the input size.
+
+```bash
+int multiplesOf3and5(int number) {
+    number--;  // Adjust to exclude the given number if it's a multiple of 3 or 5
+    int sum = 0;
+    
+    int multiplesOf3 = number / 3;
+    int multiplesOf5 = number / 5;
+    int multiplesOf15 = number / 15;
+    
+    sum = (3 * multiplesOf3 * (multiplesOf3 + 1) / 2) +
+          (5 * multiplesOf5 * (multiplesOf5 + 1) / 2) -
+          (15 * multiplesOf15 * (multiplesOf15 + 1) / 2);
+    
+    return sum;
+}
+```
