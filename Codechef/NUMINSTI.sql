@@ -1,0 +1,1 @@
+select count(distinct institution) as "Number of Distinct insti" from Participants;
