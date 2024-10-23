@@ -1,54 +1,52 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Solution {
-    public static void main(String[] args){
+public class playerMatches {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Player[] arr = new Player[4];
-        
-        for(int i=0; i<4; i++){
+        for (int i = 0; i < arr.length; i++) {
             int a = sc.nextInt();
-            sc.nextLine(); // To consume the newline character
+            sc.nextLine();
             String b = sc.nextLine();
             int c = sc.nextInt();
-            sc.nextLine(); // To consume the newline character
+            sc.nextLine();
             String d = sc.nextLine();
             String e = sc.nextLine();
             arr[i] = new Player(a, b, c, d, e);
         }
-
         String s1 = sc.nextLine();
-        int r = findPlayerWithLowestRuns(arr, s1);
-        if(r > 0) 
-            System.out.println(r); 
-        else 
-            System.out.println("No Such player");
-
         String s2 = sc.nextLine();
+
+        int r = findPlayerWithLowestRuns(arr, s1);
+        if (r > 0) {
+            System.out.println(r);
+        } else {
+            System.out.println("No such player");
+        }
+
         Player[] p = findPlayerByMatchType(arr, s2);
-        if(p == null){
-            System.out.println("No Player with given matchType");
-        } else{
+        if (p.length == 0) {
+            System.out.println("No Player with given match Type");
+        } else {
             Arrays.sort(p, (d1, d2) -> (d2.getPlayerId() - d1.getPlayerId()));
-            for(Player player : p){
-                System.out.println(player.getPlayerId());
+            for (Player i : p) {
+                System.out.println(i.getPlayerId());
             }
         }
         sc.close();
     }
 
-    public static int findPlayerWithLowestRuns(Player[] arr, String s){
+    public static int findPlayerWithLowestRuns(Player[] arr, String s) {
         int min = Integer.MAX_VALUE;
-        boolean found = false;
-        
-        for(Player i: arr){
-            if(i.getPlayerType().equalsIgnoreCase(s) && i.getRuns() < min){
+        boolean f = false;
+        for (Player i : arr) {
+            if (i.getPlayerType().equalsIgnoreCase(s) && i.getRuns() < min) {
                 min = i.getRuns();
-                found = true;
+                f = true;
             }
         }
-
-        return found ? min : 0;
+        return f ? min : 0;
     }
 
     public static Player[] findPlayerByMatchType(Player[] arr, String s) {
@@ -59,8 +57,7 @@ public class Solution {
                 p[p.length - 1] = i;
             }
         }
-
-        return p.length == 0 ? null : p;
+        return p;
     }
 }
 
