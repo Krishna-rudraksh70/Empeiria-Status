@@ -27,7 +27,7 @@ public class playerMatches {
 
         Player[] p = findPlayerByMatchType(arr, s2);
         if (p.length == 0) {
-            System.out.println("No Player with given match Type");
+            System.out.println("No Player with given matchType");
         } else {
             Arrays.sort(p, (d1, d2) -> (d2.getPlayerId() - d1.getPlayerId()));
             for (Player i : p) {
@@ -63,6 +63,7 @@ public class playerMatches {
 
 class Player {
     private int playerId;
+    @SuppressWarnings("unused")
     private String playerName;
     private int runs;
     private String playerType;

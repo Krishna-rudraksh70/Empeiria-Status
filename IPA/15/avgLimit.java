@@ -1,36 +1,29 @@
 import java.util.Scanner;
 
 public class avgLimit {
-    public static void main(String[] args) {
-        
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter the limit:");
-        int n = sc.nextInt();
-
-        int[] arr = new int[n];
-        System.out.print("Enter the arrays:");
-        for(int i=0; i<n; i++){
+        
+        int[] arr = new int[5];
+        for(int i=0; i<arr.length; i++){
             arr[i] = sc.nextInt();
         }
 
-        System.out.print("Limit1:");
+        int avg = 0, count = 0;
+
         int l1 = sc.nextInt();
-
-        System.out.print("Limit2:");
         int l2 = sc.nextInt();
-        if(l2>n)
-            l2 = n;
-
-        int res=0;
-        for(int i=l1; i<l2; i++){
-            res += arr[i];
+                
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]>l1 && arr[i]<l2){
+                avg += arr[i];
+                count++;
+            }
         }
-
-        res /= (l2-l1);
-
-        System.out.println(res);
-
+    
+        avg/=count;
+        
+        System.out.println(avg);
+        
         sc.close();
-    }
-}
+}}
