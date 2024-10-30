@@ -9,10 +9,8 @@ public class lowerCaseCount
         String s = sc.nextLine();
         int count = 0;
 
-        char[] ch = s.toCharArray();
-
-        for(int i=0; i<ch.length; i++){
-            if(Character.isLowerCase(ch[i])){
+        for(int i=0; i<s.length(); i++){
+            if(Character.isLowerCase(s.charAt(i))){
                 count++;
             }
         }

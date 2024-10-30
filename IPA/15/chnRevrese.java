@@ -18,7 +18,7 @@ public class chnRevrese {
                     s += ch[j];
                 }
 
-                i = ch.length;
+                break;
             }
             else{
                 s += ch[i];
