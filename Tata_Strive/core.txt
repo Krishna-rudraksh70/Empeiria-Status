@@ -1,0 +1,106 @@
+When preparing for Java interview questions, especially those focusing on logical and complex coding challenges, it's important to cover a wide range of topics that test your problem-solving and understanding of Java concepts. Here’s a list of core Java interview questions that often require logical thinking, coding skills, and understanding of data structures and algorithms:
+1. Array and String Manipulation
+Find the first non-repeating character in a string.
+Find the longest substring without repeating characters.
+Find the intersection of two arrays.
+2. Linked Lists
+Reverse a singly linked list.
+Detect a loop in a linked list (Floyd's Cycle-Finding Algorithm).
+Find the middle element of a linked list.
+Merge two sorted linked lists.
+Remove the N-th node from the end of a linked list.
+Find the intersection point of two linked lists.
+3. Stacks and Queues
+Implement a stack using two queues.
+Implement a queue using two stacks.
+Evaluate a postfix expression.
+Check for balanced parentheses in an expression (e.g., ({[()]})).
+Design a data structure that supports insert, delete, and get_min operations in constant time.
+Implement a circular queue.
+4. Trees and Graphs
+Find the height of a binary tree.
+Traverse a binary tree (in-order, pre-order, post-order).
+Check if a binary tree is balanced.
+Find the lowest common ancestor (LCA) of two nodes in a binary tree.
+Level-order traversal (Breadth-First Search).
+Depth-First Search (DFS) and Breadth-First Search (BFS) on a graph.
+Detect a cycle in a directed or undirected graph.
+Find all paths in a graph from a source to a destination node.
+Serialize and deserialize a binary tree.
+5. Sorting and Searching
+Implement quicksort and mergesort.
+Find the kth smallest/largest element in an unsorted array.
+Implement binary search on a sorted array.
+Find the first and last occurrence of an element in a sorted array.
+Find the peak element in an array (local maxima).
+Search in a rotated sorted array.
+6. Dynamic Programming
+Find the longest common subsequence (LCS) between two strings.
+Solve the 0/1 knapsack problem.
+Solve the coin change problem.
+Find the maximum sum subarray (Kadane’s Algorithm).
+Find the minimum number of coins needed to make a given amount.
+Compute the nth Fibonacci number using dynamic programming.
+Solve the “word break” problem.
+Find the minimum path sum in a grid.
+7. Recursion
+Solve the Tower of Hanoi problem.
+Find all permutations of a string or list of numbers.
+Solve the N-Queens problem.
+Solve the subset sum problem.
+Generate all subsets of a set.
+Solve the coin change problem using recursion.
+8. Bit Manipulation
+Check if a number is a power of two.
+Count the number of set bits in a number (Hamming weight).
+Find the only non-repeating element in an array where every other element appears twice.
+Swap two numbers without using a temporary variable.
+Find the two numbers that appear only once in an array where all other elements appear twice.
+9. Mathematical Problems
+Find the greatest common divisor (GCD) of two numbers (Euclidean algorithm).
+Implement a method to check if a number is prime.
+Compute the power of a number (x^y) without using the Math.pow() function.
+Solve the Sieve of Eratosthenes to find all primes up to N.
+Find the factorial of a number using recursion and iteration.
+10. Concurrency and Multithreading
+Design a thread-safe singleton class.
+Implement a thread-safe stack or queue.
+Explain and implement the producer-consumer problem using wait and notify.
+Solve the dining philosophers problem.
+Implement a read-write lock.
+Explain deadlock and how to prevent it.
+11. Memory Management and Garbage Collection
+Explain Java memory model (heap, stack, and method area).
+What are memory leaks and how can they be avoided in Java?
+Explain the garbage collection process in Java.
+Discuss the different types of references in Java (strong, weak, soft, phantom).
+12. Miscellaneous Complex Problems
+Implement a trie (prefix tree) for storing strings.
+Design and implement a least recently used (LRU) cache.
+Implement a merge interval algorithm.
+Implement an autocomplete system using a trie.
+Solve the "find duplicate in an array" problem using constant space.
+Design and implement a rate limiter.
+13. Time and Space Complexity Analysis
+Analyze the time complexity of common algorithms (sorting, searching, recursion).
+Optimize an algorithm for both time and space complexity.
+Discuss Big O notation for different problems and data structures.
+14. Java-Specific Topics
+Difference between HashMap and TreeMap in Java.
+Difference between ArrayList and LinkedList and their use cases.
+Explain the concept of immutability and how to create immutable classes in Java.
+Difference between == and .equals() in Java.
+Understand Java's pass-by-value mechanism (for primitive and object references).
+Explain the Java final, finally, and finalize keywords.
+Working with Java Streams API (filter, map, reduce, etc.).
+15. Design Patterns
+Implement Singleton, Factory, Observer, and Builder patterns.
+Discuss when and how to use various design patterns.
+Explain the concept of Dependency Injection and its implementation in Java.
+16. System Design
+Design a URL shortening service (e.g., bit.ly).
+Design a distributed cache system (e.g., Memcached or Redis).
+Design a file-sharing service (e.g., Dropbox).
+Design an online voting system.
+Design a rate-limiting service for an API.
+These questions span a range of topics from fundamental data structures to complex algorithmic challenges, and understanding them will help you prepare for technical interviews in Java effectively.
