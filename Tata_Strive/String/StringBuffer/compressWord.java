@@ -8,9 +8,9 @@ public class compressWord {
 
         StringBuilder s = new StringBuilder();
         String str = sc.nextLine();
-        int count=1, i=1;
+        int count=1, a=0;
         
-        for(i=1; i<str.length(); i++){
+        for(int i=1; i<str.length(); i++){
             if((str.charAt(i-1) != str.charAt(i))){
                 s.append(str.charAt(i-1));
                 s.append(count);
@@ -18,9 +18,10 @@ public class compressWord {
             }
             
             count++;
+            a=i;
         }
 
-        s.append(str.charAt(i-1));
+        s.append(str.charAt(a-1));
         s.append(count);
 
         System.out.println(s.toString());

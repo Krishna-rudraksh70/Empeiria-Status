@@ -1,5 +1,6 @@
-package Arrays;
+package ArraysQ;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class intersection {
@@ -21,7 +22,24 @@ public class intersection {
             b[i] = sc.nextInt();
         }
 
-        // for(int )
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        int A=0, B=0;
+
+        for(int i=0; i<a.length && i<b.length; i++){
+            if(a[A] == b[B]){
+                System.out.print(a[A]+" ");
+                A++;
+                B++;
+            }
+            else if(a[A] > b[B]){
+                B++;
+            }
+            else if(a[A] < b[B]){
+                A++;
+            }
+        }
 
         sc.close();
     }

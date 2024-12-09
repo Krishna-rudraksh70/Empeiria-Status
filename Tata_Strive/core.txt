@@ -2,7 +2,6 @@ When preparing for Java interview questions, especially those focusing on logica
 1. Array and String Manipulation
 Find the first non-repeating character in a string.
 Find the longest substring without repeating characters.
-Find the intersection of two arrays.
 2. Linked Lists
 Reverse a singly linked list.
 Detect a loop in a linked list (Floyd's Cycle-Finding Algorithm).
