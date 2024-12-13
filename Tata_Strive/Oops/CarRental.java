@@ -32,7 +32,7 @@ class SUV extends Vehicles{
     }
 
     void displayDetais(int d){
-        System.out.println(String.format("The Rental cost of Car for %d days : %.2f", d, calculateRentalCost(d)));
+        System.out.println(String.format("The Rental cost of SUV for %d days : %.2f", d, calculateRentalCost(d)));
     }
 }
 
