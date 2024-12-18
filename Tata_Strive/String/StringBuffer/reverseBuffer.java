@@ -1,3 +1,4 @@
+package String.StringBuffer;
 import java.util.Scanner;
 
 public class reverseBuffer {
