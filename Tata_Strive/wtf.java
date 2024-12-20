@@ -10,7 +10,7 @@ public class wtf {
                 for (int i = 0; i < 5; i++) {
                     System.out.println("Background Task " + i);
                     try {
-                        Thread.sleep(1000); // Simulate a long-running task
+                        Thread.sleep(1000);
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }

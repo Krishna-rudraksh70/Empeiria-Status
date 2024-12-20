@@ -1,10 +1,11 @@
-public class temp{
-    public static void main(String[] args) {
-        int a = 10;
-        Integer i = new Integer(a);
-        System.out.println(i);
-    }
-}
+// 5.
+// public class temp{
+//     public static void main(String[] args) {
+//         int a = 10;
+//         Integer i = new Integer(a);
+//         System.out.println(i);
+//     }
+// }
 
 // 4.
 // import java.util.Arrays;
