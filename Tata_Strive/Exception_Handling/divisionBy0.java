@@ -2,7 +2,7 @@ package Exception_Handling;
 
 import java.util.Scanner;
 
-public class divisionBy0 {
+public class divisionBy0 extends Error {
     public static void main(String[] args) {
         
         //try with resources

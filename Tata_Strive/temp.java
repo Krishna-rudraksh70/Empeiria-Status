@@ -1,3 +1,36 @@
+// 7. 
+// interface Innertemp {
+//     int sum(int a, int b);
+//     int sum(int a, int b, int c); 
+// }
+
+// public class temp{
+//     public static void main(String[] args) {
+//         Innertemp a = (s1, s2) -> s1+s2;
+//         Innertemp b = (s1, s2, s3) -> s1+s2+s3; //need functional interface
+//         System.out.println(a.sum(4, 5));
+//         System.out.println(b.sum(5, 6, 7));
+//     }
+// }
+
+// 6.
+// class t implements Runnable{
+
+//     @Override
+//     public void run() {
+//         System.out.println("Unimplemented method 'run'");
+//     }
+
+// }
+
+// public class temp{
+//     public static void main(String[] args) {
+//         t T = new t();
+//         t.run();
+//     }
+// }
+
+
 // 5.
 // public class temp{
 //     public static void main(String[] args) {
