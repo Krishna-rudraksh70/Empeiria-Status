@@ -1,4 +1,4 @@
-package StreamQ;
+package JDK8Features.StreamQ;
 
 import java.util.*;
 import java.util.function.Function;

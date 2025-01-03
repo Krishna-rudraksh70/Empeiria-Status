@@ -1,11 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
-class Student {
+class StudentNew {
     private String name;
     private int age;
 
-    public Student(String name, int age) {
+    public StudentNew(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -20,32 +20,32 @@ class Student {
 
     @Override
     public String toString() {
-        return "Student{name='" + name + "', age=" + age + "}";
+        return "StudentNew{name='" + name + "', age=" + age + "}";
     }
 }
 
 public class HashMapStudentMan {
     public static void main(String[] args) {
-        Map<Integer, Student> studentMap = new HashMap<>();
+        Map<Integer, StudentNew> StudentNewMap = new HashMap<>();
 
-        studentMap.put(101, new Student("Alice", 20));
-        studentMap.put(102, new Student("Bob", 22));
-        studentMap.put(103, new Student("Charlie", 21));
+        StudentNewMap.put(101, new StudentNew("Alice", 20));
+        StudentNewMap.put(102, new StudentNew("Bob", 22));
+        StudentNewMap.put(103, new StudentNew("Charlie", 21));
 
-        System.out.println("Student with ID 101: " + studentMap.get(101));
-        System.out.println("Student with ID 102: " + studentMap.get(102));
-        System.out.println("Student with ID 103: " + studentMap.get(103));
+        System.out.println("StudentNew with ID 101: " + StudentNewMap.get(101));
+        System.out.println("StudentNew with ID 102: " + StudentNewMap.get(102));
+        System.out.println("StudentNew with ID 103: " + StudentNewMap.get(103));
 
-        System.out.println("\nAll Students:");
-        for (Map.Entry<Integer, Student> entry : studentMap.entrySet()) {
+        System.out.println("\nAll StudentNews:");
+        for (Map.Entry<Integer, StudentNew> entry : StudentNewMap.entrySet()) {
             System.out.println("ID: " + entry.getKey() + ", " + entry.getValue());
         }
 
-        System.out.println("\nDoes student with ID 104 exist? " + studentMap.containsKey(104));
+        System.out.println("\nDoes StudentNew with ID 104 exist? " + StudentNewMap.containsKey(104));
 
-        studentMap.remove(102);
-        System.out.println("\nAfter removing student with ID 102:");
-        for (Map.Entry<Integer, Student> entry : studentMap.entrySet()) {
+        StudentNewMap.remove(102);
+        System.out.println("\nAfter removing StudentNew with ID 102:");
+        for (Map.Entry<Integer, StudentNew> entry : StudentNewMap.entrySet()) {
             System.out.println("ID: " + entry.getKey() + ", " + entry.getValue());
         }
     }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class wtf {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         JFrame frame = new JFrame("Background Task Example");
         JButton button = new JButton("Start Task");
