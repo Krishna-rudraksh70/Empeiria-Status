@@ -1,0 +1,148 @@
+<----- INSERT Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE InsertStudent(
+    IN p_Stud_Name VARCHAR(20),
+    IN p_Stud_course VARCHAR(30),
+    IN p_Stud_age TINYINT
+)
+BEGIN
+    INSERT INTO Student (Stud_Name, Stud_course, Stud_age)
+    VALUES (p_Stud_Name, p_Stud_course, p_Stud_age);
+END $$
+
+DELIMITER ;
+
+<----- Student details by ID Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE GetStudentById(
+    IN p_stud_id INT
+)
+BEGIN
+    SELECT * FROM Student WHERE stud_id = p_stud_id;
+END $$
+
+DELIMITER ;
+
+<----- All student details Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE GetAllStudents()
+BEGIN
+    SELECT * FROM Student;
+END $$
+
+DELIMITER ;
+
+<----- UPDATE Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE UpdateStudent(
+    IN p_Stud_Name VARCHAR(20),
+    IN p_Stud_course VARCHAR(30),
+    IN p_Stud_age TINYINT,
+    IN p_stud_id INT
+)
+BEGIN
+    UPDATE Student
+    SET Stud_Name = p_Stud_Name, Stud_course = p_Stud_course, Stud_age = p_Stud_age
+    WHERE stud_id = p_stud_id;
+END $$
+
+DELIMITER ;
+
+<----- DELETE Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE DeleteStudent(
+    IN p_stud_id INT
+)
+BEGIN
+    DELETE FROM Student WHERE stud_id = p_stud_id;
+END $$
+
+DELIMITER ;
+
+<----- COUNT Total Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE TotalCount(OUT cnt INT)
+BEGIN
+    SELECT COUNT(*) INTO cnt FROM Student;
+END $$
+
+DELIMITER ;
+
+<----- Top N Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE Head(IN N INT)
+BEGIN
+    SELECT * FROM Student
+    LIMIT N;
+END$$
+
+DELIMITER ;
+
+<----- Bottom N Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE Tail(IN N INT)
+BEGIN
+    SELECT * FROM Student
+    ORDER BY stud_id DESC
+    LIMIT N;
+END$$
+
+DELIMITER ;
+
+<----- SORT by attribute Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE sortBy(IN att VARCHAR(20))
+BEGIN
+    SET @query = CONCAT('SELECT * FROM your_table ORDER BY ', att);
+    PREPARE stmt FROM @query;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END$$
+
+DELIMITER ;
+
+<----- COUNT by course Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE CourseCount(IN course VARCHAR(30))
+BEGIN
+    SELECT COUNT(*) 
+    FROM Student 
+    WHERE Stud_course = course;
+END $$
+
+DELIMITER ;
+
+<----- COUNT by attribute Student ------>
+
+DELIMITER $$
+
+CREATE PROCEDURE attributeCount(IN attribute VARCHAR(20), IN val VARCHAR(30))
+BEGIN
+    SET @sql_query = CONCAT('SELECT COUNT(*) FROM Student WHERE ', attribute, ' = ?');
+    
+    PREPARE stmt FROM @sql_query;
+    EXECUTE stmt USING @val;
+    DEALLOCATE PREPARE stmt;
+END $$
+
+DELIMITER ;
