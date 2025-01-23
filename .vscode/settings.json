@@ -2,5 +2,6 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Program Files\\Java\\mysql-connector-j-8.0.33.jar"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
