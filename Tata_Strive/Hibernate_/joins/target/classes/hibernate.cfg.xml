@@ -4,13 +4,16 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://127.0.0.1:3306/database</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/database</property>
         <property name="connection.username">username</property>
         <property name="connection.password">password</property>
-        <property name="connection.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
-        <mapping class="com.hybernet.model.User"/>
+        <mapping class="com.hybernet.model.Student"/>
+        <mapping class="com.hybernet.model.Teacher"/>
+        <mapping class="com.hybernet.model.Address"/>
+
     </session-factory>
 </hibernate-configuration>
