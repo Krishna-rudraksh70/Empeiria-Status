@@ -12,8 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>23</maven.compiler.source>
+    <maven.compiler.target>23</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -36,12 +36,6 @@
         <groupId>org.hibernate.orm</groupId>
         <artifactId>hibernate-core</artifactId>
         <version>6.6.3.Final</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>jakarta.activation-api</artifactId>
-          <groupId>jakarta.activation</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
