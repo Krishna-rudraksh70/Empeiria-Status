@@ -1,0 +1,10 @@
+@Getter
+@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@ToString
+@HashCode
+@Equals
+@Builder
