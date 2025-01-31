@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/database</property>
+        <property name="connection.username">username</property>
+        <property name="connection.password">password</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <mapping class="com.arklibrary.model.Book"/>
+        <mapping class="com.arklibrary.model.Author"/>
+        <mapping class="com.arklibrary.model.Borrower"/>
+
+    </session-factory>
+</hibernate-configuration>

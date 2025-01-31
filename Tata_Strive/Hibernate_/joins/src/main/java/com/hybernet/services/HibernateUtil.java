@@ -1,4 +1,4 @@
-package com.hybernet.dao;
+package com.hybernet.services;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

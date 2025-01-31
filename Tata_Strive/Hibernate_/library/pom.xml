@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hybernet</groupId>
-  <artifactId>c_r_u_d</artifactId>
+  <groupId>com.arklibrary</groupId>
+  <artifactId>library</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>c_r_u_d</name>
+  <name>library</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -39,7 +39,7 @@
         <version>6.6.3.Final</version>
     </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>

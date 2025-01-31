@@ -1,16 +1,16 @@
-package com.hybernet.dao;
+package com.arklibrary.services;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.hybernet.model.User;
+import com.arklibrary.model.Book;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
     static {
         try {
-            sessionFactory = new Configuration().configure().addAnnotatedClass(User.class).buildSessionFactory();
+            sessionFactory = new Configuration().configure().addAnnotatedClass(Book.class).buildSessionFactory();
         } catch (Exception e) {
             e.printStackTrace();
             throw new ExceptionInInitializerError("Failed to create sessionFactory object." + e);
@@ -26,4 +26,5 @@ public class HibernateUtil {
             sessionFactory.close();
         }
     }
+
 }

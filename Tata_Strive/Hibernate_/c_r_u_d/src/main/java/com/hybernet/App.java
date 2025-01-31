@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 // import org.hibernate.query.Query;
 
-import com.hybernet.dao.HibernateUtil;
 import com.hybernet.model.User;
+import com.hybernet.services.HibernateUtil;
 
 // import java.util.List;
 import java.util.Scanner;

@@ -6,10 +6,10 @@ import java.util.Scanner;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.hybernet.dao.HibernateUtil;
 import com.hybernet.model.Address;
 import com.hybernet.model.Student;
 import com.hybernet.model.Teacher;
+import com.hybernet.services.HibernateUtil;
 
 public class App {
     private static final Scanner scanner = new Scanner(System.in);
