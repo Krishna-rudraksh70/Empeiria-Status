@@ -1,12 +1,12 @@
 package com.arklibrary;
 
+import com.arklibrary.dao.AuthorUtil;
+import com.arklibrary.dao.BookUtil;
+import com.arklibrary.dao.BorrowerUtil;
+import com.arklibrary.dao.HibernateUtil;
 import com.arklibrary.model.Author;
 import com.arklibrary.model.Book;
 import com.arklibrary.model.Borrower;
-import com.arklibrary.services.AuthorServices;
-import com.arklibrary.services.BookServices;
-import com.arklibrary.services.BorrowerServices;
-import com.arklibrary.services.HibernateUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -88,13 +88,13 @@ public class App {
         int copies = scanner.nextInt();
         scanner.nextLine();
 
-        AuthorServices.showAllAuthors();
+        AuthorUtil.showAllAuthors();
 
         System.out.print("Enter Author ID: ");
         int authorId = scanner.nextInt();
         scanner.nextLine();
 
-        Author author = AuthorServices.getAuthorById(authorId);
+        Author author = AuthorUtil.getAuthorById(authorId);
         if (author == null) {
             System.out.println("Author not found!");
             return;
@@ -107,7 +107,7 @@ public class App {
         book.setCopies(copies);
         book.setBAuthor(author);
 
-        BookServices.insertBook(book);
+        BookUtil.insertBook(book);
         System.out.println("Book added successfully!");
     }
 
@@ -116,7 +116,7 @@ public class App {
         int bookId = scanner.nextInt();
         scanner.nextLine();
 
-        Book book = BookServices.getBookById(bookId);
+        Book book = BookUtil.getBookById(bookId);
         if (book == null) {
             System.out.println("Book not found.");
             return;
@@ -154,10 +154,10 @@ public class App {
                 book.setCopies(newCopies);
             }
             case 5 -> {
-                AuthorServices.showAllAuthors();
+                AuthorUtil.showAllAuthors();
                 System.out.print("Enter new Author ID: ");
                 int authorId = scanner.nextInt();
-                Author newAuthor = AuthorServices.getAuthorById(authorId);
+                Author newAuthor = AuthorUtil.getAuthorById(authorId);
                 if (newAuthor != null)
                     book.setBAuthor(newAuthor);
                 else
@@ -170,7 +170,7 @@ public class App {
 
         }
 
-        BookServices.updateBook(book);
+        BookUtil.updateBook(book);
         System.out.println("Book updated successfully!");
     }
 
@@ -179,7 +179,7 @@ public class App {
         int bookId = scanner.nextInt();
         scanner.nextLine();
 
-        Book book = BookServices.getBookById(bookId);
+        Book book = BookUtil.getBookById(bookId);
         if (book != null)
             System.out.println(book);
         else
@@ -190,7 +190,7 @@ public class App {
         System.out.print("Enter Book Title to search: ");
         String title = scanner.nextLine();
 
-        List<Book> books = BookServices.getBooksByTitle(title);
+        List<Book> books = BookUtil.getBooksByTitle(title);
         if (books.isEmpty())
             System.out.println("No books found!");
         else
@@ -199,7 +199,7 @@ public class App {
 
     private static void allBooks() {
 
-        BookServices.showAllBooks();
+        BookUtil.showAllBooks();
 
     }
 
@@ -210,7 +210,7 @@ public class App {
         Author author = new Author();
         author.setAName(name);
 
-        AuthorServices.insertAuthor(author);
+        AuthorUtil.insertAuthor(author);
 
         System.out.println("Author added successfully!");
     }
@@ -223,7 +223,7 @@ public class App {
         System.out.print("Enter new Author Name: ");
         String newName = scanner.nextLine();
 
-        AuthorServices.updateAuthor(authorId, newName);
+        AuthorUtil.updateAuthor(authorId, newName);
         System.out.println("Author updated successfully!");
     }
 
@@ -232,7 +232,7 @@ public class App {
         int authorId = scanner.nextInt();
         scanner.nextLine();
 
-        Author author = AuthorServices.getAuthorById(authorId);
+        Author author = AuthorUtil.getAuthorById(authorId);
         if (author != null)
             System.out.println(author);
         else
@@ -243,7 +243,7 @@ public class App {
         System.out.print("Enter Author Name to search: ");
         String name = scanner.nextLine();
 
-        List<Author> authors = AuthorServices.getAuthorsByName(name);
+        List<Author> authors = AuthorUtil.getAuthorsByName(name);
         if (authors.isEmpty())
             System.out.println("No authors found!");
         else
@@ -252,7 +252,7 @@ public class App {
 
     private static void allAuthors() {
 
-        AuthorServices.showAllAuthors();
+        AuthorUtil.showAllAuthors();
 
     }
 
@@ -271,7 +271,7 @@ public class App {
         borrower.setBEmail(email);
         borrower.setBPhoneNumber(phoneNumber);
 
-        BorrowerServices.insertBorrower(borrower);
+        BorrowerUtil.insertBorrower(borrower);
         System.out.println("Borrower added successfully!");
     }
 
@@ -280,7 +280,7 @@ public class App {
         int borrowerId = scanner.nextInt();
         scanner.nextLine();
 
-        Borrower borrower = BorrowerServices.getBorrowerById(borrowerId);
+        Borrower borrower = BorrowerUtil.getBorrowerById(borrowerId);
         if (borrower == null) {
             System.out.println("Borrower not found.");
             return;
@@ -316,7 +316,7 @@ public class App {
             }
         }
 
-        BorrowerServices.updateBorrower(borrower);
+        BorrowerUtil.updateBorrower(borrower);
         System.out.println("Borrower updated successfully!");
     }
 
@@ -325,7 +325,7 @@ public class App {
         int borrowerId = scanner.nextInt();
         scanner.nextLine();
 
-        Borrower borrower = BorrowerServices.getBorrowerById(borrowerId);
+        Borrower borrower = BorrowerUtil.getBorrowerById(borrowerId);
         if (borrower != null)
             System.out.println(borrower);
         else
@@ -336,7 +336,7 @@ public class App {
         System.out.print("Enter Borrower Name to search: ");
         String name = scanner.nextLine();
 
-        List<Borrower> borrowers = BorrowerServices.getBorrowersByName(name);
+        List<Borrower> borrowers = BorrowerUtil.getBorrowersByName(name);
         if (borrowers.isEmpty())
             System.out.println("No borrowers found!");
         else
@@ -345,7 +345,7 @@ public class App {
 
     private static void allBorrowers(){
 
-        BorrowerServices.showAllBorrower();
+        BorrowerUtil.showAllBorrower();
 
     }
 

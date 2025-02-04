@@ -1,4 +1,4 @@
-package com.arklibrary.services;
+package com.arklibrary.dao;
 
 import java.util.List;
 
@@ -7,20 +7,21 @@ import org.hibernate.Transaction;
 
 import com.arklibrary.model.Book;
 
-public class BookServices {
+public class BookUtil {
 
     public static void insertBook(Book book) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
+
+        book.setBAuthor(session.merge(book.getBAuthor()));
 
         session.persist(book);
 
         transaction.commit();
-        session.close();
     }
 
     public static void updateBook(Book book) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
         if (book != null) {
@@ -28,27 +29,38 @@ public class BookServices {
         }
 
         transaction.commit();
-        session.close();
     }
 
     public static Book getBookById(int bookId) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Book book = session.get(Book.class, bookId);
-        session.close();
+        
         return book;
     }
 
+    // public static Book getBookById(int bookId) {
+    //     Session session = HibernateUtil.getSession();
+    
+    //     Book book = session.createQuery("FROM Book b JOIN FETCH b.bAuthor WHERE b.id = :bookId", Book.class)
+    //                        .setParameter("bookId", bookId)
+    //                        .uniqueResult();
+    
+    //     
+    //     return book;
+    // }
+    
+
     public static List<Book> getBooksByTitle(String title) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Book> books = session.createQuery("FROM Book WHERE bTittle LIKE :title", Book.class)
+        Session session = HibernateUtil.getSession();
+        List<Book> books = session.createQuery("FROM Book WHERE bTitle LIKE :title", Book.class)
                 .setParameter("title", "%" + title + "%")
                 .getResultList();
-        session.close();
+        
         return books;
     }
 
     public static void showAllBooks() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         List<Book> books = session.createQuery("FROM Book", Book.class).getResultList();
 
         if (books.isEmpty())
@@ -58,7 +70,7 @@ public class BookServices {
             books.forEach(book -> System.out.println(book));
         }  
 
-        session.close();
+        
     }
 
 }

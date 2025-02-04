@@ -8,8 +8,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 
 import lombok.Data;
 
@@ -29,7 +28,6 @@ public class Borrower {
     @Column(nullable = false)
     private String bPhoneNumber;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bid")
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Book> borrowedBooks;
 }

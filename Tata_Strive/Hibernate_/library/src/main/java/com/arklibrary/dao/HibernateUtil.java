@@ -1,5 +1,6 @@
-package com.arklibrary.services;
+package com.arklibrary.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -7,6 +8,7 @@ import com.arklibrary.model.Book;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
+    private static Session session;
 
     static {
         try {
@@ -21,9 +23,15 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
+    public static Session getSession() {
+        session = sessionFactory.openSession();
+        return session;
+    }
+
     public static void shutdown() {
         if (sessionFactory != null) {
             sessionFactory.close();
+            session.close();
         }
     }
 

@@ -1,4 +1,4 @@
-package com.arklibrary.services;
+package com.arklibrary.dao;
 
 import java.util.List;
 
@@ -7,56 +7,56 @@ import org.hibernate.Transaction;
 
 import com.arklibrary.model.Borrower;
 
-public class BorrowerServices {
+public class BorrowerUtil {
     
     public static void insertBorrower(Borrower borrower) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
         session.persist(borrower);
 
         transaction.commit();
-        session.close();
+        
     }
 
     public static void updateBorrower(Borrower borrower) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
         session.merge(borrower);
 
         transaction.commit();
-        session.close();
+        
     }
 
     public static Borrower getBorrowerById(int borrowerId) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         Borrower borrower = session.get(Borrower.class, borrowerId);
-        session.close();
+        
         return borrower;
     }
 
     public static List<Borrower> getBorrowersByName(String name) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         List<Borrower> borrowers = session.createQuery("FROM Borrower WHERE bName LIKE :name", Borrower.class)
                 .setParameter("name", "%" + name + "%")
                 .getResultList();
-        session.close();
+        
         return borrowers;
     }
 
     public static void showAllBorrower() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSession();
         List<Borrower> borrowers = session.createQuery("FROM Borrower", Borrower.class).getResultList();
 
         if (borrowers.isEmpty())
-            System.out.println("No authors found.");
+            System.out.println("No Borrower found.");
         else{
             System.out.println("Borrower list");
             borrowers.forEach(borrower -> System.out.println(borrower));
         }
 
-        session.close();
+        
     }
 
 }

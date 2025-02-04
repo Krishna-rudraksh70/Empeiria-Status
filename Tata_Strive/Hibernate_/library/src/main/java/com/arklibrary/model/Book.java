@@ -10,8 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -39,8 +40,12 @@ public class Book {
     @JoinColumn(name = "aid", nullable = false)
     private Author bAuthor;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bid")
-    private List<Borrower> borrower;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "book_borrower",
+        joinColumns = @JoinColumn(name = "book_id"),
+        inverseJoinColumns = @JoinColumn(name = "borrower_id")
+    )
+    private List<Borrower> borrower; 
  
 }
