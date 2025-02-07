@@ -1,0 +1,144 @@
+Understanding the Issue:
+In a Spring application, if a bean is shared across multiple threads but maintains an internal state, there is a risk of thread-safety issues due to concurrent modifications.
+
+1. Default Singleton Scope in Spring and Its Implications
+By default, Spring beans are singleton-scoped, meaning a single instance of the bean is created and shared across the entire application context.
+If this singleton bean has mutable state (e.g., instance variables modified by different threads), race conditions and data inconsistencies can occur.
+Example of a problematic singleton:
+
+@Component
+public class CounterService {
+    private int counter = 0;
+
+    public void increment() {
+        counter++; // Not thread-safe
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+}
+
+Multiple threads modifying counter concurrently can lead to unpredictable results.
+
+
+2. Approaches to Ensure Thread Safety
+A. Making the Bean Immutable
+If the bean doesn't need to modify internal state, we can design it as immutable:
+Declare fields as final
+Initialize them in the constructor
+Avoid setters or modifying methods
+Example:
+
+@Component
+public class ImmutableService {
+    private final String message;
+
+    public ImmutableService() {
+        this.message = "Hello, World!";
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}
+
+Since no state changes occur, multiple threads can safely use the bean.
+
+B. Using Prototype Scope
+Instead of sharing a single instance, we can create a new instance per request using prototype scope.
+This avoids concurrency issues since each thread gets its own instance.
+Example:
+
+@Scope("prototype")
+@Component
+public class PrototypeService {
+    private int counter = 0;
+
+    public void increment() {
+        counter++;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+}
+
+Downside: Prototype beans are not managed by Spring after creation, so lifecycle methods like @PreDestroy won’t be called automatically.
+
+C. Synchronizing Access
+If using a singleton is necessary, we can synchronize critical sections:
+
+@Component
+public class SynchronizedService {
+    private int counter = 0;
+
+    public synchronized void increment() {
+        counter++;
+    }
+
+    public synchronized int getCounter() {
+        return counter;
+    }
+}
+Alternatively, using ReentrantLock or AtomicInteger:
+
+@Component
+public class AtomicService {
+    private final AtomicInteger counter = new AtomicInteger(0);
+
+    public void increment() {
+        counter.incrementAndGet();
+    }
+
+    public int getCounter() {
+        return counter.get();
+    }
+}
+
+Downside: Synchronization may reduce performance due to contention.
+
+
+3. Alternative Scopes in a Web Application
+A. Request Scope (@Scope("request"))
+A new bean instance is created per HTTP request.
+Useful for request-specific data like session tokens or form inputs.
+Example:
+
+@Scope("request")
+@Component
+public class RequestScopedBean {
+    private final String requestId = UUID.randomUUID().toString();
+
+    public String getRequestId() {
+        return requestId;
+    }
+}
+
+B. Session Scope (@Scope("session"))
+A new bean instance is created for each user session.
+Ideal for storing user-related data across multiple requests.
+Example:
+
+@Scope("session")
+@Component
+public class SessionScopedBean {
+    private String username;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+}
+
+
+Summary: Choosing the Right Approach
+Approach - When to Use - Pros - Cons
+* Immutable Bean - When state doesn't change - Thread-safe, simple - May not be feasible for all use cases
+* Prototype Scope - When each request needs a fresh instance - No shared state issues - Higher memory usage
+* Synchronization - When a singleton must modify state - Ensures safe updates - Performance overhead
+* Request Scope - Web apps needing per-request state - Isolated per request - Not suitable for non-web applications
+* Session Scope - Web apps needing per-user state - Preserves state across requests - Uses more memory

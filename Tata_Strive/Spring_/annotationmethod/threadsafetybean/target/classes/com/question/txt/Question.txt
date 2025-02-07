@@ -1,0 +1,7 @@
+Scenario-1:
+You’re developing a Spring application where a bean is shared across multiple threads. However, the bean maintains some internal state. How would you address potential thread-safety issues in this scenario?
+
+Follow-up points to consider:
+* Describe the default singleton scope in Spring and its implications.
+* Explain approaches like making the bean immutable, using prototype scope, or synchronizing access.
+* Discuss when you might use alternative scopes (such as request or session) in a web application.
