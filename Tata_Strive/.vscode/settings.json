@@ -3,6 +3,9 @@
         ".",
         "Collection"
     ],
-    "java.project.referencedLibraries": [],
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.project.referencedLibraries": [
+        "c:\\Program Files\\Java\\mysql-connector-j-8.3.0.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

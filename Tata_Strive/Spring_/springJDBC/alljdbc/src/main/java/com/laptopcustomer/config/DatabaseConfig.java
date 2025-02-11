@@ -14,7 +14,7 @@ public class DatabaseConfig {
     public DataSource dataSource() {
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource(
-                "jdbc:mysql://localhost:3306/database", "username", "password");
+                "jdbc:mysql://localhost:3679/tata_strive", "rudrakri", "synapse");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         return dataSource;
