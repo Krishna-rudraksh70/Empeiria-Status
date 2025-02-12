@@ -1,0 +1,2 @@
+1 -> Book(bId=1, bTitle=Human Act, publicationYear=2009, copies=3, bAuthor=Author(aId=1, aName=Han Kang))
+3 -> Book(bId=2, bTitle=Vegetarian, publicationYear=2023, copies=4, bAuthor=Author(aId=1, aName=Han Kang))
