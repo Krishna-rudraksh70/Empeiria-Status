@@ -17,7 +17,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private RowMapper<Customer> rowMapper = (rs, rowNum) -> new Customer(
+    private RowMapper<Customer> rowMapper = (rs, _) -> new Customer(
             rs.getInt("id"),
             rs.getString("name"),
             rs.getString("email"));
