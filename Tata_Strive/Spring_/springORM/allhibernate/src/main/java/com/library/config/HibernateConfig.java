@@ -17,7 +17,7 @@ public class HibernateConfig {
     public DataSource getDataSource() {
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource(
-                "jdbc:mysql://localhost:3679/tata_strive", "rudrakri", "synapse");
+                "jdbc:mysql://localhost:3306/database", "username", "password");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         return dataSource;

@@ -19,7 +19,7 @@ public class LaptopRepositoryImpl implements LaptopRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private RowMapper<Laptop> rowMapper = (rs, rowNum) -> new Laptop(
+    private RowMapper<Laptop> rowMapper = (rs, _) -> new Laptop(
             rs.getInt("id"),
             rs.getString("brand"),
             rs.getString("model"),

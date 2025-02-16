@@ -142,7 +142,7 @@ public class App {
             System.out.print("Enter book updated no. of copies (current: " + book.getCopies() + "): ");
             int copies = scanner.nextInt();
             scanner.nextLine();
-            bookService.updateBook(new Book(title, publicationYear, copies, getExistingAuthor()));
+            bookService.updateBook(new Book(id, title, publicationYear, copies, getExistingAuthor()));
             System.out.println("Book updated successfully.");
         } else {
             System.out.println("Book not found.");
